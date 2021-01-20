@@ -139,17 +139,19 @@ services:
     depends_on:
      - DB_Clients  
   MS_Front: 
-    container_name: MS_Front
-    build: ./MS_Front
-    image: ms_front
+    container_name: MS_Frontwajdi
+    build: ./Microservices
+    image: ms_frontwajdi
     ports:
      - 94:94
     environment:
-     - API_URL=localhost
+     - API_URL=${HOST}
     networks:
       mysubnet:
         aliases:
         - MSFront.aliases
 networks:
   mysubnet:
-    external: true
+    external: false
+    name: mysubnet
+
